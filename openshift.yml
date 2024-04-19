@@ -1,9 +1,14 @@
-apiVersion: v1
-kind: Pod
+apiVersion: route.openshift.io/v1
+kind: Route
+annotations:
+  haproxy.router.openshift.io/rewrite-target: /
 metadata:
-  name: mypod1
-  namespace: foo
+  name: route-unsecured
 spec:
-  containers:
-    - name: helloworld
-      image: hello-world
+  path: "/unnatipune"
+  port:
+   targetPort: 8080
+  to:
+    kind: Service
+    name: myapp1
+
