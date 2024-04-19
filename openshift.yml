@@ -9,6 +9,6 @@ spec:
   port:
    targetPort: 8080
   to:
-    kind: Service
+    kind: Service 
     name: myapp1
 
